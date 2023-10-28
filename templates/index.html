@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QRコード生成アプリ</title>
+</head>
+<body>
+    <h1>QRコード生成アプリ</h1>
+    <form action="/generate_qrcode" method="post">
+        <label for="data">データを入力:</label>
+        <input type="text" name="data" id="data" required>
+        <input type="submit" value="QRコード生成">
+    </form>
+    <br>
+    <img src="" id="qrcode" style="display:none;">
+    <div id="user_data">
+        {% if user_data %}
+        <h2>ユーザーごとの情報</h2>
+        <p>データ: {{ user_data.data }}</p>
+        {% endif %}
+    </div>
+    <script>
+        const form = document.querySelector("form");
+        const qrcodeImage = document.getElementById("qrcode");
+        
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const data = form.elements.data.value;
+            const response = await fetch("/generate_qrcode", {
+                method: "POST",
+                body: new URLSearchParams({ data }),
+            });
+            if (response.ok) {
+                qrcodeImage.src = URL.createObjectURL(await response.blob());
+                qrcodeImage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
