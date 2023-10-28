@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>QRコード生成アプリ</title>
+    <title>名刺作成ページ</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../static/index.css" />
+    <script type="text/javascript" src="index.js"></script>
 </head>
+
 <body>
-    <h1>QRコード生成アプリ</h1>
-    <form action="/generate_qrcode" method="post">
-        <label for="data">データを入力:</label>
-        <input type="text" name="data" id="data" required>
-        <input type="submit" value="QRコード生成">
+    <h1>名刺作成ページ</h1>
+    <form action="index.html" method="post" onsubmit="return ExecuteSubmit();">
+        <h2>デザイン</h2>
+        <p>デザインを選択してください</p>
+        <input type="radio" name="design" value="simple_image" id="selectSimple" checked>
+        <label for="selectSimple"></label>
+        <input type="radio" name="design" value="cute_image" id="selectCute">
+        <label for="selectCute"></label>
+        <input type="radio" name="design" value="cat_image" id="selectCat">
+        <label for="selectCat"></label>
+        <input type="radio" name="design" value="block_image" id="selectBlock">
+        <label for="selectBlock"></label>
+        <input type="radio" name="design" value="space_image" id="selectSpace">
+        <label for="selectSpace"></label>
+
+        <h2>SNSロゴ</h2>
+        <p>共有するSNSを選択してください</p>
+        <label>
+            <input type="checkbox" name="LINE" value="LINE" id="SNS-logo">
+            <img src="../img/LINE_icon.png" alt="LINE">
+        </label>
+        <label>
+            <input type="checkbox" name="Instagram" value="Instagram" id="SNS-logo">
+            <img src="../img/Instagram_icon.png" alt="Instagram">
+        </label>
+        <label>
+            <input type="checkbox" name="Twitter" value="Twitter" id="SNS-logo">
+            <img src="../img/Twitter_icon.png" alt="Twitter">
+        </label>
+        <label>
+            <input type="checkbox" name="Facebook" value="Facebook" id="SNS-logo">
+            <img src="../img/Facebook_icon.png" alt="Facebook">
+        </label>
+        <label>
+            <input type="checkbox" name="TikTok" value="TikTok" id="SNS-logo">
+            <img src="../img/TikTok_icon.png" alt="TikTok">
+        </label>
+
+        <h2>用途を選択してください</h2>
+        <p>プライベート用かビジネス用か選択してください</p>
+        <input type="radio" name="Purpose" value="private" checked>プライベート用<br>
+        <input type="radio" name="Purpose" value="business">ビジネス用<br>
+        <input type="submit" value="名刺を作成する">
     </form>
-    <br>
-    <img src="" id="qrcode" style="display:none;">
-    <div id="user_data">
-        {% if user_data %}
-        <h2>ユーザーごとの情報</h2>
-        <p>データ: {{ user_data.data }}</p>
-        {% endif %}
-    </div>
-    <script>
-        const form = document.querySelector("form");
-        const qrcodeImage = document.getElementById("qrcode");
-        
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const data = form.elements.data.value;
-            const response = await fetch("/generate_qrcode", {
-                method: "POST",
-                body: new URLSearchParams({ data }),
-            });
-            if (response.ok) {
-                qrcodeImage.src = URL.createObjectURL(await response.blob());
-                qrcodeImage.style.display = "block";
-            }
-        });
-    </script>
 </body>
+
 </html>
