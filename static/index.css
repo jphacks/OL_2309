@@ -1,0 +1,60 @@
+input[type=radio]+label:before {
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    width: 18vw;
+    height: 18vw;
+}
+
+input[type=radio][value="simple_image"]+label:before {
+    background-image: url(../img/simple_image.jpg);
+}
+
+input[type=radio][value="cute_image"]+label:before {
+    background-image: url(../img/cute_image.png);
+}
+
+input[type=radio][value="cat_image"]+label:before {
+    background-image: url(../img/cat_image.jpg);
+}
+
+input[type=radio][value="block_image"]+label:before {
+    background-image: url(../img/block_image.jpg);
+}
+
+input[type=radio][value="space_image"]+label:before {
+    background-image: url(../img/space_image.jpg);
+}
+
+input[type=radio]:checked+label::before {
+    border: 3px solid #000;
+    box-sizing: border-box;
+}
+
+label {
+    display: inline-block;
+    margin-right: auto;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type="checkbox"]+img {
+    width: 18vw;
+    height: 18vw;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked+img {
+    border: 3px solid #000;
+    box-sizing: border-box;
+}
+
+#selectSimple,
+#selectCute,
+#selectCat,
+#selectBlock,
+#selectSpace {
+    display: none;
+}

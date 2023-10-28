@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file, session
 from flask_session import Session
 import qrcode
 
-app = Flask(__name)
+app = Flask(__name__)
 
 # セッションをセットアップ
 app.config['SESSION_TYPE'] = 'filesystem'
