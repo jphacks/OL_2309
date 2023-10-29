@@ -9,12 +9,31 @@
 </head>
 
 <body>
-    <form action="account.html" method="POST" id="user_register">
-        <label for="line_name">LINEの名前：</label>
-        <input type="text" name="line_name" required id="line_name"><br>
-        <label for="line_email">LINEのメールアドレス</label>
-        <input type="email" name="line_email" required id="line_email"><br>
-        <label for="sns">紐付けるSNS</label>
+    <form action="/account" method="POST" id="user_register">
+
+        <label for="username">ユーザー名:</label>
+        <input type="text" name="username" required id="username"><br>
+        
+        <label for="password">パスワード:</label>
+        <input type="password" name="password" required id="password"><br>
+    
+        <label for="line_url">LINE URL:</label>
+        <input type="text" name="line_url" id="line_url"><br>
+        
+        <label for="instagram_url">Instagram URL:</label>
+        <input type="text" name="instagram_url" id="instagram_url"><br>
+    
+        <label for="twitter_url">Twitter URL:</label>
+        <input type="text" name="twitter_url" id="twitter_url"><br>
+    
+        <label for="facebook_url">Facebook URL:</label>
+        <input type="text" name="facebook_url" id="facebook_url"><br>
+    
+        <label for="tiktok_url">TikTok URL:</label>
+        <input type="text" name="tiktok_url" id="tiktok_url"><br>
+    
+
+
         <input type="checkbox" name="sns" id="sns" value="LINE"><br>
         <input type="submit" value="ユーザ登録">
     </form>

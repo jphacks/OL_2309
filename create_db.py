@@ -5,8 +5,18 @@ def create_userdb():
     con = sqlite3.connect(db_name)
     cur = con.cursor()
 
-    cur.execute('CREATE TABLE IF NOT EXISTS user_table (id INTEGER PRIMARY KEY AUTOINCREMENT,\
-        line_url STRING, instagram_url STRING, twitter_url STRING, facebook_url STRING, tiktok_url STRING);')
+    cur.execute('''
+    CREATE TABLE IF NOT EXISTS user_table (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT,
+        password TEXT,
+        line_url TEXT, 
+        instagram_url TEXT, 
+        twitter_url TEXT, 
+        facebook_url TEXT, 
+        tiktok_url TEXT
+    );
+    ''')
 
     con.commit()
 
