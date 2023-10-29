@@ -26,16 +26,26 @@
     <form action="index.html" method="get" onsubmit="return ExecuteSubmit();">
         <h2>デザイン</h2>
         <p>デザインを選択してください</p>
-        <input type="radio" name="design" value="simple_image" id="selectSimple" checked>
-        <label for="selectSimple"></label>
-        <input type="radio" name="design" value="cute_image" id="selectCute">
-        <label for="selectCute"></label>
-        <input type="radio" name="design" value="cat_image" id="selectCat">
-        <label for="selectCat"></label>
-        <input type="radio" name="design" value="block_image" id="selectBlock">
-        <label for="selectBlock"></label>
-        <input type="radio" name="design" value="space_image" id="selectSpace">
-        <label for="selectSpace"></label>
+        <label for="selectSimple" class="radio-label">
+            <input type="radio" name="design" value="simple_image" id="selectSimple" checked/>
+            <img src="{{ url_for('static', filename='img/simple_image.jpg') }}" alt="Simple">
+        </label>
+        <label for="selectCute" class="radio-label">
+            <input type="radio" name="design" value="cute_image" id="selectCute"/>
+            <img src="{{ url_for('static', filename='img/cute_image.png') }}" alt="Cute">
+        </label>
+        <label for="selectCat" class="radio-label">
+            <input type="radio" name="design" value="cat_image" id="selectCat"/>
+            <img src="{{ url_for('static', filename='img/cat_image.jpg') }}" alt="Cat">
+        </label>
+        <label for="selectBlock" class="radio-label">
+            <input type="radio" name="design" value="block_image" id="selectBlock"/>
+            <img src="{{ url_for('static', filename='img/block_image.jpg') }}" alt="Block">
+        </label>
+        <label for="selectSpace" class="radio-label">
+            <input type="radio" name="design" value="space_image" id="selectSpace"/>
+            <img src="{{ url_for('static', filename='img/space_image.jpg') }}" alt="Space">
+        </label>        
 
         <h2>SNSロゴ</h2>
         <p>共有するSNSを選択してください</p>
