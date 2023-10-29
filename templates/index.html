@@ -41,23 +41,25 @@
         <p>共有するSNSを選択してください</p>
         <label>
             <input type="checkbox" name="LINE" value="LINE" id="SNS-logo">
-            <img src="../img/LINE_icon.png" alt="LINE">
+            <img src="{{ url_for('static', filename='img/LINE_icon.png') }}" alt="LINE">
         </label>
         <label>
             <input type="checkbox" name="Instagram" value="Instagram" id="SNS-logo">
-            <img src="../img/Instagram_icon.png" alt="Instagram">
+            <img src="{{ url_for('static', filename='img/Instagram_icon.png') }}" alt="Instagram">
         </label>
         <label>
             <input type="checkbox" name="Twitter" value="Twitter" id="SNS-logo">
-            <img src="../img/Twitter_icon.png" alt="Twitter">
+            <img src="{{ url_for('static', filename='img/Twitter_icon.png') }}" alt="Twitter">
         </label>
         <label>
             <input type="checkbox" name="Facebook" value="Facebook" id="SNS-logo">
-            <img src="../img/Facebook_icon.png" alt="Facebook">
+            <img src="{{ url_for('static', filename='img/Facebook_icon.png') }}" alt="Facebook">
+
         </label>
         <label>
             <input type="checkbox" name="TikTok" value="TikTok" id="SNS-logo">
-            <img src="../img/TikTok_icon.png" alt="TikTok">
+            <img src="{{ url_for('static', filename='img/TikTok_icon.png') }}" alt="TikTok">
+
         </label>
 
         <h2>用途を選択してください</h2>
