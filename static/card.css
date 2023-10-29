@@ -27,56 +27,56 @@ body {
 }
 
 #design1 {
-    background-image: url('../img/simple_image.jpg');
+    background-image: url('./img/simple_image.jpg');
     /* 背景画像のURLを指定 */
 }
 
 #design2 {
-    background-image: url('../img/cute_image.png');
+    background-image: url('./img/cute_image.png');
     /* 背景画像のURLを指定 */
 }
 
 #design3 {
-    background-image: url('../img/cat_image.jpg');
+    background-image: url('./img/cat_image.jpg');
     /* 背景画像のURLを指定 */
 }
 
 #design4 {
-    background-image: url('../img/block_image.jpg');
+    background-image: url('./img/block_image.jpg');
     /* 背景画像のURLを指定 */
 }
 
 #design5 {
-    background-image: url('../img/space_image.jpg');
+    background-image: url('./img/space_image.jpg');
     /* 背景画像のURLを指定 */
 }
 
 #logo1 {
-    background-image: url('../img/LINE_icon.png');
+    background-image: url('./img/LINE_icon.png');
     top: 10px;
     left: 10px;
 }
 
 #logo2 {
-    background-image: url('../img/Instagram_icon.png');
+    background-image: url('./img/Instagram_icon.png');
     top: 10px;
     right: 10px;
 }
 
 #logo3 {
-    background-image: url('../img/Twitter_icon.png');
+    background-image: url('./img/Twitter_icon.png');
     bottom: 10px;
     left: 10px;
 }
 
 #logo4 {
-    background-image: url('../img/Facebook_icon.png');
+    background-image: url('./img/Facebook_icon.png');
     bottom: 10px;
     right: 10px;
 }
 
 #logo5 {
-    background-image: url('../img/TikTok_icon.png');
+    background-image: url('./img/TikTok_icon.png');
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
