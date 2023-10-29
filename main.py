@@ -36,23 +36,31 @@ def add_user_db(username, password, line_url, instagram_url, twitter_url, facebo
 
     conn.close()
 
+# ログイン画面を表示するルート
+# @app.route("/")
+# def login():
+#     return render_template("login.html")
+
 # ホームページを表示するルート
-@app.route("/", methods = ["GET"])
+@app.route("/", methods = ["GET", "POST"])
 def index():
+    if request.method == "GET":
     # # セッションからユーザーごとの情報を取得
-    user_data = session.get("user_data")
-    return render_template("index.html", user_data=user_data)
+        user_data = session.get("user_data")
+        return render_template("index.html", user_data=user_data)
     # if request.method == "GET":
         
     # return render_template("index.html")
 
-@app.route("/private")
+@app.route("/private", methods = ["GET", "POST"])
 def private():
-    return render_template('private.html')
+    if request.method == "GET":
+        return render_template('private.html')
 
-@app.route("/business")
+@app.route("/business", methods = ["GET", "POST"])
 def business():
-    return render_template('business.html')
+    if request.method == "GET":
+        return render_template('business.html')
 
 @app.route("/account", methods=["GET", "POST"])
 def account():
