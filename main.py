@@ -59,11 +59,12 @@ def private():
 
 @app.route("/business", methods = ["GET", "POST"])
 def business():
-    return render_template('business.html')
+    if request.method == "GET":
+        return render_template('business.html')
 
 @app.route("/account", methods=["GET", "POST"])
 def account():
-    if request.method == "GET":
+    if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
         line_url = request.form["line_url"]
