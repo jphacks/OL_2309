@@ -9,12 +9,24 @@ app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
+def add_user_db(line_name, line_email, line_password, instagram_url, twitter_url, facebook_url, tiktok_url):
+    db_name = 'User_db'
+    con = sqlite3.connect(db_name)
+    cur = con.cursor()
+
+    status = False
+
+    cur.execute("SELECT * FROM user_table WHERE line_name = '" + line_name + "' and line_email = '" + line_email + "' and line_password = '" + line_password + "';")
+
 # ホームページを表示するルート
-@app.route("/")
+@app.route("/", methods = ["GET"])
 def index():
-    # セッションからユーザーごとの情報を取得
+    # # セッションからユーザーごとの情報を取得
     user_data = session.get("user_data")
     return render_template("index.html", user_data=user_data)
+    # if request.method == "GET":
+        
+    # return render_template("index.html")
 
 @app.route("/private")
 def private():
@@ -24,29 +36,19 @@ def private():
 def business():
     return render_template('business.html')
 
-# QRコードを生成して表示するルート
-@app.route("/generate_qrcode", methods=["POST"])
-def generate_qrcode():
-    data = request.form.get("data")
-    user_data = {
-        "data": data,
-    }
-    # ユーザーごとの情報をセッションに保存
-    session["user_data"] = user_data
+@app.route("/account", methods=["GET", "POST"])
+def account():
+    if request.method == "POST":
+        line_url = request.form["line_url"]
+        instagram_url = request.form["instagram_url"]
+        twitter_url = request.form["twitter_url"]
+        facebook_url = request.form["facebook_url"]
+        tiktok_url = request.form["tiktok_url"]
 
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4,
-    )
-    qr.add_data(data)
-    qr.make(fit=True)
-    img = qr.make_image(fill_color="black", back_color="white")
+    add_user_db(line_url, instagram_url, twitter_url, facebook_url, tiktok_url)
 
-    img_path = "temp_qrcode.png"
-    img.save(img_path)
-    return send_file(img_path, mimetype="image/png")
+    return render_template('account.html', line_url = line_url,  instagram_url = instagram_url, twitter_url = twitter_url, facebook_url = facebook_url, tiktok_url = tiktok_url)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
