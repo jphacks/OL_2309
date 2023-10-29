@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, send_file, session
 from flask_session import Session
 import qrcode
+import sqlite3
 
 app = Flask(__name__)
 
@@ -14,6 +15,14 @@ def index():
     # セッションからユーザーごとの情報を取得
     user_data = session.get("user_data")
     return render_template("index.html", user_data=user_data)
+
+@app.route("/private")
+def private():
+    return render_template('private.html')
+
+@app.route("/business")
+def business():
+    return render_template('business.html')
 
 # QRコードを生成して表示するルート
 @app.route("/generate_qrcode", methods=["POST"])
