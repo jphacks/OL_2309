@@ -7,31 +7,21 @@
     <link rel="stylesheet" href="../static/index.css" />
     <script type="text/javascript" src="index.js"></script>
 </head>
-<header class="header">
-    <div class="header__inner">
-        <h1 class="header__title header-title">
-            <a href="#">
-                logo
-            </a>
-        </h1>
-
-        <nav class="header__nav nav" id="js-nav">
-            <ul class="nav__items nav-items">
-                <li class="nav-items__item"><a href="account.html">アカウント情報・登録</a></li>
-                <li class="nav-items__item"><a href="private.html">プライベート用名刺</a></li>
-                <li class="nav-items__item"><a href="business.html">ビジネス用名刺</a></li>
-            </ul>
-        </nav>
-
-        <button class="header__hamburger hamburger" id="js-hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</header>
 
 <body>
+    <div class="navbar">
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu">
+            <li><a href="account.html">アカウント情報・登録</a></li>
+            <li><a href="private.html">プライベート用名刺</a></li>
+            <li><a href="business.html">ビジネス用名刺</a></li>
+        </ul>
+    </div>
+
     <h1>名刺作成ページ</h1>
     <form action="index.html" method="post" onsubmit="return ExecuteSubmit();">
         <h2>デザイン</h2>
